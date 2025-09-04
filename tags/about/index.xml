@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>About on r00tpunk</title>
+    <link>http://localhost:1313/tags/about/</link>
+    <description>Recent content in About on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/about/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>About Me</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 31 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;h1 id=&#34;hi-im-abdul-rehman&#34;&gt;Hi, I’m Abdul Rehman&lt;/h1&gt;&#xA;&lt;p&gt;I’m a &lt;strong&gt;BSCS student&lt;/strong&gt; passionate about &lt;strong&gt;cybersecurity and ethical hacking&lt;/strong&gt;.&lt;br&gt;&#xA;I regularly practice on &lt;strong&gt;Hack The Box&lt;/strong&gt; and &lt;strong&gt;PortSwigger Academy&lt;/strong&gt;, sharpening my penetration testing and web security skills.&lt;br&gt;&#xA;Currently, I’m studying at &lt;strong&gt;Pentester Academy&lt;/strong&gt;, diving deeper into offensive security techniques and real-world attack vectors.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;what-i-do&#34;&gt;What I Do&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Web application security testing&lt;/li&gt;&#xA;&lt;li&gt;Capture The Flag (CTF) challenges&lt;/li&gt;&#xA;&lt;li&gt;Learning penetration testing methodologies&lt;/li&gt;&#xA;&lt;li&gt;Exploring vulnerabilities and exploit development&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;goals&#34;&gt;Goals&lt;/h2&gt;&#xA;&lt;p&gt;My aim is to become a &lt;strong&gt;professional penetration tester and security researcher&lt;/strong&gt;, contributing to making the digital world more secure.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

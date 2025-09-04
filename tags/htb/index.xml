@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTB on r00tpunk</title>
+    <link>https://r00tpunk.github.io/tags/htb/</link>
+    <description>Recent content in HTB on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <atom:link href="https://r00tpunk.github.io/tags/htb/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB Challenges</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb/</guid>
+      <description>&lt;p&gt;Welcome to my &lt;strong&gt;Hack The Box (HTB)&lt;/strong&gt; writeups section!&lt;br&gt;&#xA;Here you&amp;rsquo;ll find detailed walkthroughs and solutions for the HTB challenges I have solved.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTB Flag Command</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-flagcommand/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-flagcommand/</guid>
+      <description>&lt;h2 id=&#34;challenge-overview&#34;&gt;Challenge Overview&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Flag Command&lt;/strong&gt; challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.&lt;br&gt;&#xA;At first glance, it looked like a text-based adventure game running in the browser.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;step-1-the-initial-scene&#34;&gt;Step 1: The Initial Scene&lt;/h2&gt;&#xA;&lt;p&gt;When we loaded the page, we were greeted with a creepy game-like screen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;fc1.jpg&#34; alt=&#34;Game Screen&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It described an eerie forest with mysterious instructions and a prompt to begin.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTB Spookifier</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-spookifier/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-spookifier/</guid>
+      <description>&lt;h1 id=&#34;htb-challenge-spookifier-beginner-write-up&#34;&gt;HTB Challenge: Spookifier (Beginner Write-up)&lt;/h1&gt;&#xA;&lt;p&gt;In this post, I’ll go over the &lt;strong&gt;HackTheBox challenge Spookifier&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;step-1-explore-the-web-app&#34;&gt;Step 1: Explore the Web App&lt;/h2&gt;&#xA;&lt;p&gt;After starting the challenge, I opened the website.&lt;br&gt;&#xA;It’s called &lt;strong&gt;Spookifier&lt;/strong&gt; and it asks you to enter your “Halloween name.”&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;1st.png&#34; alt=&#34;1st&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When I typed my name, it showed the result in four different fonts.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>HTB SpookyPass</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-spookypass/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-spookypass/</guid>
+      <description>&lt;h2 id=&#34;htb-challenge-spookypass-beginner-write-up&#34;&gt;HTB Challenge: SpookyPass (Beginner Write-up)&lt;/h2&gt;&#xA;&lt;p&gt;This is my write-up for the &lt;strong&gt;HackTheBox challenge SpookyPass&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a reversing challenge, and since I’m still in my first year of university, I’ll keep it simple and explain step by step how I solved it.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;step-1-download-and-unzip-the-files&#34;&gt;Step 1: Download and Unzip the Files&lt;/h3&gt;&#xA;&lt;p&gt;First, I downloaded the zip file from the challenge and unzipped it:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unzip SpookyPass.zip&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Inside, I found a folder called &lt;code&gt;rev_spookypass&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;zip-unzip.png&#34; alt=&#34;HTB Screenshot&#34;&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
