@@ -6,14 +6,14 @@
     <description>Recent content in Error-Based Injection on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Sep 2025 16:00:00 +0500</lastBuildDate>
+    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/tags/error-based-injection/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SQL Injection Lab – Lesson 1 (Error-Based: String)</title>
-      <link>https://r00tpunk.github.io/posts/learning/sqli/less1/</link>
-      <pubDate>Mon, 08 Sep 2025 16:00:00 +0500</pubDate>
-      <guid>https://r00tpunk.github.io/posts/learning/sqli/less1/</guid>
-      <description>&lt;h1 id=&#34;what-is-this-lesson-about&#34;&gt;What is this Lesson About?&lt;/h1&gt;&#xA;&lt;p&gt;This lab demonstrates a classic &lt;strong&gt;Error-Based SQL Injection vulnerability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The application takes user input from the URL (&lt;code&gt;id&lt;/code&gt; parameter) and uses it directly in a SQL query without proper validation or sanitization.&lt;/p&gt;&#xA;&lt;p&gt;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-to-identify-if-it-is-error-based&#34;&gt;How to Identify if It Is Error-Based?&lt;/h1&gt;&#xA;&lt;p&gt;When testing a parameter for SQL injection, attackers often add characters like:&lt;/p&gt;</description>
+      <link>https://r00tpunk.github.io/posts/learning/less1/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less1/</guid>
+      <description>&lt;h2 id=&#34;what-is-this-lesson-about&#34;&gt;What is this Lesson About?&lt;/h2&gt;&#xA;&lt;p&gt;This lab demonstrates a classic &lt;strong&gt;Error-Based SQL Injection vulnerability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The application takes user input from the URL (&lt;code&gt;id&lt;/code&gt; parameter) and uses it directly in a SQL query without proper validation or sanitization.&lt;/p&gt;&#xA;&lt;p&gt;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-to-identify-if-it-is-error-based&#34;&gt;How to Identify if It Is Error-Based?&lt;/h2&gt;&#xA;&lt;p&gt;When testing a parameter for SQL injection, attackers often add characters like:&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

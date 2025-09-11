@@ -3,28 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://r00tpunk.github.io/tags/error-based-injection/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/labs/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/posts/learning/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/posts/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/sql-injection/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/learning/sqli/less1/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <loc>https://r00tpunk.github.io/posts/learning/less1/</loc>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/web-security/</loc>
-    <lastmod>2025-09-08T16:00:00+05:00</lastmod>
+    <lastmod>2025-09-08T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/backup/</loc>
     <lastmod>2025-09-04T00:00:00+00:00</lastmod>
@@ -32,24 +32,25 @@
     <loc>https://r00tpunk.github.io/</loc>
     <lastmod>2025-09-04T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/learning/sqli/</loc>
-    <lastmod>2025-09-04T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/about/</loc>
-  </url><url>
     <loc>https://r00tpunk.github.io/tags/ctf/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/posts/ctf/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/tags/htb/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/ctf/htb/</loc>
+    <loc>https://r00tpunk.github.io/posts/ctf/htb-flagcommand/</loc>
+    <lastmod>2025-08-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/ctf/htb/htb-flagcommand/</loc>
+    <loc>https://r00tpunk.github.io/posts/ctf/htb-spookifier/</loc>
+    <lastmod>2025-08-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/ctf/htb/htb-spookifier/</loc>
+    <loc>https://r00tpunk.github.io/posts/ctf/htb-spookypass/</loc>
+    <lastmod>2025-08-07T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/posts/ctf/htb/htb-spookypass/</loc>
+    <loc>https://r00tpunk.github.io/about/</loc>
   </url><url>
     <loc>https://r00tpunk.github.io/series/</loc>
   </url>

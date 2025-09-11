@@ -6,35 +6,35 @@
     <description>Recent content on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Sep 2025 16:00:00 +0500</lastBuildDate>
+    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SQL Injection Lab – Lesson 1 (Error-Based: String)</title>
-      <link>https://r00tpunk.github.io/posts/learning/sqli/less1/</link>
-      <pubDate>Mon, 08 Sep 2025 16:00:00 +0500</pubDate>
-      <guid>https://r00tpunk.github.io/posts/learning/sqli/less1/</guid>
-      <description>&lt;h1 id=&#34;what-is-this-lesson-about&#34;&gt;What is this Lesson About?&lt;/h1&gt;&#xA;&lt;p&gt;This lab demonstrates a classic &lt;strong&gt;Error-Based SQL Injection vulnerability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The application takes user input from the URL (&lt;code&gt;id&lt;/code&gt; parameter) and uses it directly in a SQL query without proper validation or sanitization.&lt;/p&gt;&#xA;&lt;p&gt;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&lt;/p&gt;&#xA;&lt;h1 id=&#34;how-to-identify-if-it-is-error-based&#34;&gt;How to Identify if It Is Error-Based?&lt;/h1&gt;&#xA;&lt;p&gt;When testing a parameter for SQL injection, attackers often add characters like:&lt;/p&gt;</description>
+      <link>https://r00tpunk.github.io/posts/learning/less1/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less1/</guid>
+      <description>&lt;h2 id=&#34;what-is-this-lesson-about&#34;&gt;What is this Lesson About?&lt;/h2&gt;&#xA;&lt;p&gt;This lab demonstrates a classic &lt;strong&gt;Error-Based SQL Injection vulnerability&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;The application takes user input from the URL (&lt;code&gt;id&lt;/code&gt; parameter) and uses it directly in a SQL query without proper validation or sanitization.&lt;/p&gt;&#xA;&lt;p&gt;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&lt;/p&gt;&#xA;&lt;h2 id=&#34;how-to-identify-if-it-is-error-based&#34;&gt;How to Identify if It Is Error-Based?&lt;/h2&gt;&#xA;&lt;p&gt;When testing a parameter for SQL injection, attackers often add characters like:&lt;/p&gt;</description>
     </item>
     <item>
       <title>HTB Flag Command</title>
-      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-flagcommand/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-flagcommand/</guid>
-      <description>&lt;h2 id=&#34;challenge-overview&#34;&gt;Challenge Overview&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Flag Command&lt;/strong&gt; challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.&lt;br&gt;&#xA;At first glance, it looked like a text-based adventure game running in the browser.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;step-1-the-initial-scene&#34;&gt;Step 1: The Initial Scene&lt;/h2&gt;&#xA;&lt;p&gt;When we loaded the page, we were greeted with a creepy game-like screen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;fc1.jpg&#34; alt=&#34;Game Screen&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It described an eerie forest with mysterious instructions and a prompt to begin.&lt;/p&gt;</description>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-flagcommand/</link>
+      <pubDate>Sun, 24 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-flagcommand/</guid>
+      <description>&lt;h2 id=&#34;challenge-overview&#34;&gt;Challenge Overview&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Flag Command&lt;/strong&gt; challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.&lt;br&gt;&#xA;At first glance, it looked like a text-based adventure game running in the browser.&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-1-the-initial-scene&#34;&gt;Step 1: The Initial Scene&lt;/h2&gt;&#xA;&lt;p&gt;When we loaded the page, we were greeted with a creepy game-like screen:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;fc1.jpg&#34; alt=&#34;Game Screen&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;It described an eerie forest with mysterious instructions and a prompt to begin.&lt;/p&gt;</description>
     </item>
     <item>
       <title>HTB Spookifier</title>
-      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-spookifier/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-spookifier/</guid>
-      <description>&lt;h1 id=&#34;htb-challenge-spookifier-beginner-write-up&#34;&gt;HTB Challenge: Spookifier (Beginner Write-up)&lt;/h1&gt;&#xA;&lt;p&gt;In this post, I’ll go over the &lt;strong&gt;HackTheBox challenge Spookifier&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h2 id=&#34;step-1-explore-the-web-app&#34;&gt;Step 1: Explore the Web App&lt;/h2&gt;&#xA;&lt;p&gt;After starting the challenge, I opened the website.&lt;br&gt;&#xA;It’s called &lt;strong&gt;Spookifier&lt;/strong&gt; and it asks you to enter your “Halloween name.”&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;1st.png&#34; alt=&#34;1st&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When I typed my name, it showed the result in four different fonts.&lt;/p&gt;</description>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-spookifier/</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-spookifier/</guid>
+      <description>&lt;h1 id=&#34;htb-challenge-spookifier-beginner-write-up&#34;&gt;HTB Challenge: Spookifier (Beginner Write-up)&lt;/h1&gt;&#xA;&lt;p&gt;In this post, I’ll go over the &lt;strong&gt;HackTheBox challenge Spookifier&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.&lt;/p&gt;&#xA;&lt;h2 id=&#34;step-1-explore-the-web-app&#34;&gt;Step 1: Explore the Web App&lt;/h2&gt;&#xA;&lt;p&gt;After starting the challenge, I opened the website.&lt;br&gt;&#xA;It’s called &lt;strong&gt;Spookifier&lt;/strong&gt; and it asks you to enter your “Halloween name.”&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;1st.png&#34; alt=&#34;1st&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;When I typed my name, it showed the result in four different fonts.&lt;/p&gt;</description>
     </item>
     <item>
       <title>HTB SpookyPass</title>
-      <link>https://r00tpunk.github.io/posts/ctf/htb/htb-spookypass/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://r00tpunk.github.io/posts/ctf/htb/htb-spookypass/</guid>
-      <description>&lt;h2 id=&#34;htb-challenge-spookypass-beginner-write-up&#34;&gt;HTB Challenge: SpookyPass (Beginner Write-up)&lt;/h2&gt;&#xA;&lt;p&gt;This is my write-up for the &lt;strong&gt;HackTheBox challenge SpookyPass&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a reversing challenge, and since I’m still in my first year of university, I’ll keep it simple and explain step by step how I solved it.&lt;/p&gt;&#xA;&lt;hr&gt;&#xA;&lt;h3 id=&#34;step-1-download-and-unzip-the-files&#34;&gt;Step 1: Download and Unzip the Files&lt;/h3&gt;&#xA;&lt;p&gt;First, I downloaded the zip file from the challenge and unzipped it:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unzip SpookyPass.zip&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Inside, I found a folder called &lt;code&gt;rev_spookypass&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;zip-unzip.png&#34; alt=&#34;HTB Screenshot&#34;&gt;&lt;/p&gt;</description>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-spookypass/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-spookypass/</guid>
+      <description>&lt;h2 id=&#34;htb-challenge-spookypass-beginner-write-up&#34;&gt;HTB Challenge: SpookyPass (Beginner Write-up)&lt;/h2&gt;&#xA;&lt;p&gt;This is my write-up for the &lt;strong&gt;HackTheBox challenge SpookyPass&lt;/strong&gt;.&lt;br&gt;&#xA;It’s a reversing challenge, and since I’m still in my first year of university, I’ll keep it simple and explain step by step how I solved it.&lt;/p&gt;&#xA;&lt;h3 id=&#34;step-1-download-and-unzip-the-files&#34;&gt;Step 1: Download and Unzip the Files&lt;/h3&gt;&#xA;&lt;p&gt;First, I downloaded the zip file from the challenge and unzipped it:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;unzip SpookyPass.zip&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Inside, I found a folder called &lt;code&gt;rev_spookypass&lt;/code&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;zip-unzip.png&#34; alt=&#34;HTB Screenshot&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

