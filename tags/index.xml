@@ -6,34 +6,41 @@
     <description>Recent content in Tags on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Error-Based Injection</title>
-      <link>https://r00tpunk.github.io/tags/error-based-injection/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
-      <guid>https://r00tpunk.github.io/tags/error-based-injection/</guid>
+      <title>Double Query Injection</title>
+      <link>https://r00tpunk.github.io/tags/double-query-injection/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/tags/double-query-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Labs</title>
       <link>https://r00tpunk.github.io/tags/labs/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://r00tpunk.github.io/tags/labs/</guid>
       <description></description>
     </item>
     <item>
       <title>SQL Injection</title>
       <link>https://r00tpunk.github.io/tags/sql-injection/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://r00tpunk.github.io/tags/sql-injection/</guid>
       <description></description>
     </item>
     <item>
       <title>Web Security</title>
       <link>https://r00tpunk.github.io/tags/web-security/</link>
-      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
       <guid>https://r00tpunk.github.io/tags/web-security/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Error-Based Injection</title>
+      <link>https://r00tpunk.github.io/tags/error-based-injection/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/tags/error-based-injection/</guid>
       <description></description>
     </item>
     <item>

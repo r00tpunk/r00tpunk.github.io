@@ -221,6 +221,8 @@
                 
                         
                 
+                        
+                
             
         
         
@@ -271,6 +273,8 @@
                 
                         
                 
+                        
+                
             
         
         
@@ -288,6 +292,8 @@
                 
             
                 
+                
+                        
                 
                         
                 
@@ -354,6 +360,79 @@
                 <div class="posts">
     
     
+    <article class="post">
+        <div class="info">
+  <h1 class="post-title">
+    <a href="https://r00tpunk.github.io/posts/learning/less2/">SQL Injection Lab – Lesson 2 (Double Query Injection)</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-09-22T00:00:00Z" class="post-date">
+        September 22, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-SQL Injection">
+        <a href="https://r00tpunk.github.io/tags/sql-injection">SQL Injection</a>
+      </li>
+      
+      <li class="tag-Double Query Injection">
+        <a href="https://r00tpunk.github.io/tags/double-query-injection">Double Query Injection</a>
+      </li>
+      
+      <li class="tag-Web Security">
+        <a href="https://r00tpunk.github.io/tags/web-security">Web Security</a>
+      </li>
+      
+      <li class="tag-Labs">
+        <a href="https://r00tpunk.github.io/tags/labs">Labs</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+        
+        <h1 id="double-query-sub-query-injection">Double Query (Sub-Query) Injection</h1>
+<h2 id="find-injectable-parameter">Find injectable parameter</h2>
+<ol>
+<li>Look for parameters placed inside single quotes: <code>id='...</code></li>
+<li>Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).</li>
+</ol>
+<p>If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.</p>
+<h2 id="dumping-database-name">Dumping database name</h2>
+<p>Payload:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+
+</span></span></span></code></pre></div><p>if error shows <em><strong>DataBase name</strong></em>, you succeeded.
+<img src="/sqli-02/ss1.jpg" alt="Alt text"></p>
+        
+        <div class="read-more-link">
+            <a href="/posts/learning/less2/">Read More…</a>
+        </div>
+        
+        
+    </article>
     <article class="post">
         <div class="info">
   <h1 class="post-title">

