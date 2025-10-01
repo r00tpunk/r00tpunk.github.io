@@ -20,10 +20,13 @@
 
 
 
-<script defer language="javascript" type="text/javascript" src="/js/bundle.min.7750550c0319f5de56d916b91e642bf72a5bd09ee50b201dc2ed9db69d6177a8.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.5991d603939a6d188be342b278a4555db90f163903158c623d2c39fde3d82cb3.js"></script>
 
 
 
+
+
+  
 
 
 
@@ -97,13 +100,13 @@
 
 
 
-<meta name="generator" content="Hugo 0.149.0">
+<meta name="generator" content="Hugo 0.131.0">
 
 
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.c5418c20c87786ca86a048c94829afd7a4878d46a40852faf7a3bb64f3dced4e.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.187ef09b40a995f4710437d48683184ae970c6540aa503dfba2c19d68efb84d9.css">
 
 
     
@@ -363,6 +366,71 @@
     <article class="post">
         <div class="info">
   <h1 class="post-title">
+    <a href="https://r00tpunk.github.io/posts/learning/less3/">SQL Injection Lab – Lesson 3 (Blind injections - Boolean based)</a>
+  </h1>
+
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-10-01T00:00:00Z" class="post-date">
+        October 1, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
+
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-SQL Injection">
+        <a href="https://r00tpunk.github.io/tags/sql-injection">SQL Injection</a>
+      </li>
+      
+      <li class="tag-Double Query Injection">
+        <a href="https://r00tpunk.github.io/tags/double-query-injection">Double Query Injection</a>
+      </li>
+      
+      <li class="tag-Web Security">
+        <a href="https://r00tpunk.github.io/tags/web-security">Web Security</a>
+      </li>
+      
+      <li class="tag-Labs">
+        <a href="https://r00tpunk.github.io/tags/labs">Labs</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+        
+        Blind injections -(Boolean based) Blind SQL injection is a technique where the attacker can infer information from the database without seeing the actual query output, using only binary responses.
+With pure blind SQLi the application won’t print database values for you — you can only test true/false.
+Boolean‑based – the injected condition evaluates to TRUE or FALSE.
+Inject parameter Look for parameters placed inside single quotes: id='... Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).
+        
+        <div class="read-more-link">
+            <a href="/posts/learning/less3/">Read More…</a>
+        </div>
+        
+        
+    </article>
+    <article class="post">
+        <div class="info">
+  <h1 class="post-title">
     <a href="https://r00tpunk.github.io/posts/learning/less2/">SQL Injection Lab – Lesson 2 (Double Query Injection)</a>
   </h1>
 
@@ -414,18 +482,9 @@
 </div>
 
         
-        <h1 id="double-query-sub-query-injection">Double Query (Sub-Query) Injection</h1>
-<h2 id="find-injectable-parameter">Find injectable parameter</h2>
-<ol>
-<li>Look for parameters placed inside single quotes: <code>id='...</code></li>
-<li>Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).</li>
-</ol>
-<p>If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.</p>
-<h2 id="dumping-database-name">Dumping database name</h2>
-<p>Payload:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+
-</span></span></span></code></pre></div><p>if error shows <em><strong>DataBase name</strong></em>, you succeeded.
-<img src="/sqli-02/ss1.jpg" alt="Alt text"></p>
+        Double Query (Sub-Query) Injection Inject parameter Look for parameters placed inside single quotes: id='... Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged). If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.
+Dumping database name Payload:
+1&#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+ if error shows DataBase name, you succeeded.
         
         <div class="read-more-link">
             <a href="/posts/learning/less2/">Read More…</a>
@@ -487,12 +546,10 @@
 </div>
 
         
-        <h2 id="what-is-this-lesson-about">What is this Lesson About?</h2>
-<p>This lab demonstrates a classic <strong>Error-Based SQL Injection vulnerability</strong>.</p>
-<p>The application takes user input from the URL (<code>id</code> parameter) and uses it directly in a SQL query without proper validation or sanitization.</p>
-<p>The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.</p>
-<h2 id="how-to-identify-if-it-is-error-based">How to Identify if It Is Error-Based?</h2>
-<p>When testing a parameter for SQL injection, attackers often add characters like:</p>
+        What is this Lesson About? This lab demonstrates a classic Error-Based SQL Injection vulnerability.
+The application takes user input from the URL (id parameter) and uses it directly in a SQL query without proper validation or sanitization.
+The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.
+How to Identify if It Is Error-Based? When testing a parameter for SQL injection, attackers often add characters like:
         
         <div class="read-more-link">
             <a href="/posts/learning/less1/">Read More…</a>
@@ -546,13 +603,11 @@
 </div>
 
         
-        <h2 id="challenge-overview">Challenge Overview</h2>
-<p>The <strong>Flag Command</strong> challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.<br>
-At first glance, it looked like a text-based adventure game running in the browser.</p>
-<h2 id="step-1-the-initial-scene">Step 1: The Initial Scene</h2>
-<p>When we loaded the page, we were greeted with a creepy game-like screen:</p>
-<p><img src="fc1.jpg" alt="Game Screen"></p>
-<p>It described an eerie forest with mysterious instructions and a prompt to begin.</p>
+        Challenge Overview The Flag Command challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.
+At first glance, it looked like a text-based adventure game running in the browser.
+Step 1: The Initial Scene When we loaded the page, we were greeted with a creepy game-like screen:
+It described an eerie forest with mysterious instructions and a prompt to begin.
+Step 2: Inspecting the Responses Opening DevTools → Network/Response tab, we found JSON objects containing all possible commands.
         
         <div class="read-more-link">
             <a href="/posts/ctf/htb-flagcommand/">Read More…</a>
@@ -606,14 +661,11 @@ At first glance, it looked like a text-based adventure game running in the brows
 </div>
 
         
-        <h1 id="htb-challenge-spookifier-beginner-write-up">HTB Challenge: Spookifier (Beginner Write-up)</h1>
-<p>In this post, I’ll go over the <strong>HackTheBox challenge Spookifier</strong>.<br>
-It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.</p>
-<h2 id="step-1-explore-the-web-app">Step 1: Explore the Web App</h2>
-<p>After starting the challenge, I opened the website.<br>
-It’s called <strong>Spookifier</strong> and it asks you to enter your “Halloween name.”</p>
-<p><img src="1st.png" alt="1st"></p>
-<p>When I typed my name, it showed the result in four different fonts.</p>
+        HTB Challenge: Spookifier (Beginner Write-up) In this post, I’ll go over the HackTheBox challenge Spookifier.
+It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.
+Step 1: Explore the Web App After starting the challenge, I opened the website.
+It’s called Spookifier and it asks you to enter your “Halloween name.”
+When I typed my name, it showed the result in four different fonts.
         
         <div class="read-more-link">
             <a href="/posts/ctf/htb-spookifier/">Read More…</a>

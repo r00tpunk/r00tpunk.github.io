@@ -50,20 +50,20 @@
 
 
 
-  
-  
-  
 
 
+  
+  
+  
 
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">r00tpunk - Posts</title>
-<meta property="og:title" content=r00tpunk&#32;-&#32;Posts />
-<meta name="twitter:title" content=r00tpunk&#32;-&#32;Posts />
-<meta itemprop="name" content=r00tpunk&#32;-&#32;Posts />
-<meta name="application-name" content=r00tpunk&#32;-&#32;Posts />
+<title itemprop="name">r00tpunk - SQL Injection Lab – Lesson 3 (Blind injections - Boolean based)</title>
+<meta property="og:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;3&#32;(Blind&#32;injections&#32;-&#32;Boolean&#32;based) />
+<meta name="twitter:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;3&#32;(Blind&#32;injections&#32;-&#32;Boolean&#32;based) />
+<meta itemprop="name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;3&#32;(Blind&#32;injections&#32;-&#32;Boolean&#32;based) />
+<meta name="application-name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;3&#32;(Blind&#32;injections&#32;-&#32;Boolean&#32;based) />
 <meta property="og:site_name" content="r00tpunk" />
 
 
@@ -73,18 +73,17 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="https://r00tpunk.github.io/posts/" />
-<link rel="canonical" href="https://r00tpunk.github.io/posts/" itemprop="url" />
-<meta name="url" content="https://r00tpunk.github.io/posts/" />
-<meta name="twitter:url" content="https://r00tpunk.github.io/posts/" />
-<meta property="og:url" content="https://r00tpunk.github.io/posts/" />
+<base href="https://r00tpunk.github.io/posts/learning/less3/" />
+<link rel="canonical" href="https://r00tpunk.github.io/posts/learning/less3/" itemprop="url" />
+<meta name="url" content="https://r00tpunk.github.io/posts/learning/less3/" />
+<meta name="twitter:url" content="https://r00tpunk.github.io/posts/learning/less3/" />
+<meta property="og:url" content="https://r00tpunk.github.io/posts/learning/less3/" />
 
 
 <meta property="og:updated_time" content="2025-10-01T00:00:00Z" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://r00tpunk.github.io/sitemap.xml' />
-<link href="https://r00tpunk.github.io/posts/index.xml" rel="alternate" type="application/rss+xml" title="r00tpunk" />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -97,25 +96,6 @@
 <meta name="apple-mobile-web-app-title" content="r00tpunk" />
 <meta name="apple-mobile-web-app-capable" content="yes" />
 <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-
-
-
-
-
-
-  <link rel="first" href="/posts/" />
-  <link rel="last" href="/posts/" />
-  
-  
-
-
-<meta property="og:type" content="article" />
-<meta property="article:publisher" content="" />
-<meta property="og:article:published_time" content="2025-10-01T00:00:00Z" />
-<meta property="article:published_time" content="2025-10-01T00:00:00Z" />
-
-
 
 
 
@@ -382,40 +362,126 @@
 </aside>
 
             <main class="content container">
-                <h1 class="title">Posts</h1>
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="https://r00tpunk.github.io/posts/learning/less3/">SQL Injection Lab – Lesson 3 (Blind injections - Boolean based)</a>
+  </h1>
 
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-10-01T00:00:00Z" class="post-date">
+        October 1, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
 
-<div class="list-content">
+        <span>2 mins read</span>
+      </span>
+    </div>
+
+    
+    <ul class="tags">
+      
+      <li class="tag-SQL Injection">
+        <a href="https://r00tpunk.github.io/tags/sql-injection">SQL Injection</a>
+      </li>
+      
+      <li class="tag-Double Query Injection">
+        <a href="https://r00tpunk.github.io/tags/double-query-injection">Double Query Injection</a>
+      </li>
+      
+      <li class="tag-Web Security">
+        <a href="https://r00tpunk.github.io/tags/web-security">Web Security</a>
+      </li>
+      
+      <li class="tag-Labs">
+        <a href="https://r00tpunk.github.io/tags/labs">Labs</a>
+      </li>
+      
+    </ul>
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  <h2 id="blind-injections--boolean-based">Blind injections -(Boolean based)</h2>
+<p>Blind SQL injection is a technique where the attacker can infer information from the database without seeing the actual query output, using only binary responses.</p>
+<p>With pure blind SQLi the application won’t print database values for you — you can only test true/false.</p>
+<p>Boolean‑based – the injected condition evaluates to TRUE or FALSE.</p>
+<h1 id="inject-parameter">Inject parameter</h1>
+<ol>
+<li>Look for parameters placed inside single quotes: <code>id='...</code></li>
+<li>Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).</li>
+</ol>
+<p>If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.</p>
+<h2 id="boolean-logic-construction">Boolean Logic Construction</h2>
+<ol>
+<li>Inject an AND clause that always evaluates to true or false.</li>
+<li>True example: AND 1=1 → page shows <em><strong>“you are in”</strong></em>.</li>
+<li>False example: AND 1=0 → no output.</li>
+<li>Boolean‑blind SQLi doesn’t print database values to the page for you; it only lets you test <em><strong>true/false</strong></em> conditions.</li>
+</ol>
+<h2 id="testing-queries">Testing queries</h2>
+<p>As you can see this is the normal test lab</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>http://localhost:8080/sqli-labs/sqli-labs-master/Less-8/
+</span></span></code></pre></div><p><img src="/sqli-03/biN.jpg" alt="Alt text"></p>
+<p><em><strong>Now let&rsquo;s break the query</strong></em></p>
+<ul>
+<li>For this I&rsquo;m using the this query to test <em><strong>true/false</strong></em>.</li>
+<li>If it&rsquo;s true the query will show us output such as <em><strong>“you are in”</strong></em>.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))) &lt; 101 --+
+</span></span></span></code></pre></div><p><img src="/sqli-03/biB.jpg" alt="Alt text"></p>
+<p>Now we can see that the qurey is broke now it&rsquo;s mean it&rsquo;s false that&rsquo;s why we are not getting any output from it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; AND (ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1))) &lt; 105   --+
+</span></span></span></code></pre></div><p><img src="/sqli-03/biC.jpg" alt="Alt text"></p>
+<p>Now you can see that the query is correct now it&rsquo;s mean its true.</p>
+
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="https://r00tpunk.github.io/posts/learning/less2/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>SQL Injection Lab – Lesson 2 (Double Query...</a>
+        
+	    
     
 </div>
 
-<ul class="entries">
-    
-        <h3 style="text-align: center;">2025</h3>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/">Learning</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Oct 1, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/ctf/">CTF Archive</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Aug 24, 2025</time>
-                </span>
-            </li>
-        
-    
-</ul>
-
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#blind-injections--boolean-based">Blind injections -(Boolean based)</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#boolean-logic-construction">Boolean Logic Construction</a></li>
+    <li><a href="#testing-queries">Testing queries</a></li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>

