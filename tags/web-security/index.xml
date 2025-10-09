@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web Security on r00tpunk</title>
+    <link>https://r00tpunk.github.io/tags/web-security/</link>
+    <description>Recent content in Web Security on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://r00tpunk.github.io/tags/web-security/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Injection Lab – Lesson 4 (Blind injections - Time based)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less4/</link>
+      <pubDate>Wed, 08 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less4/</guid>
+      <description>Blind injections -(Time based) An injection technique where the attacker cannot see the query output directly; instead, they infer information through side‑effects such as time delays or content changes.&#xA;Inject parameter Look for parameters placed inside single quotes: id=&#39;... Confirm the server shows delays or responds immediately. By measuring latency you can infer boolean results and enumerate the database. If the delay happen, parameter is injectable.&#xA;Time-Based Paylods Construction Identify injection point (e.</description>
+    </item>
+    <item>
+      <title>SQL Injection Lab – Lesson 3 (Blind injections - Boolean based)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less3/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less3/</guid>
+      <description>Blind injections -(Boolean based) Blind SQL injection is a technique where the attacker can infer information from the database without seeing the actual query output, using only binary responses.&#xA;With pure blind SQLi the application won’t print database values for you — you can only test true/false.&#xA;Boolean‑based – the injected condition evaluates to TRUE or FALSE.&#xA;Inject parameter Look for parameters placed inside single quotes: id=&#39;... Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged).</description>
+    </item>
+    <item>
+      <title>SQL Injection Lab – Lesson 2 (Double Query Injection)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less2/</link>
+      <pubDate>Mon, 22 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less2/</guid>
+      <description>Double Query (Sub-Query) Injection Inject parameter Look for parameters placed inside single quotes: id=&#39;... Confirm the app shows errors or returns a page that changes on bad input (even if message hidden — error may still be logged). If the response changes, parameter is injectable. If you get SQL error, good — proceed carefully.&#xA;Dumping database name Payload:&#xA;1&amp;#39; AND (select 1 from (select count(*), concat(0x3a,0x3a,(select database()),0x3a,0x3a, floor(rand()*2))a from information_schema.columns group by a)b) --+ if error shows DataBase name, you succeeded.</description>
+    </item>
+    <item>
+      <title>SQL Injection Lab – Lesson 1 (Error-Based: String)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less1/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less1/</guid>
+      <description>What is this Lesson About? This lab demonstrates a classic Error-Based SQL Injection vulnerability.&#xA;The application takes user input from the URL (id parameter) and uses it directly in a SQL query without proper validation or sanitization.&#xA;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&#xA;How to Identify if It Is Error-Based? When testing a parameter for SQL injection, attackers often add characters like:</description>
+    </item>
+  </channel>
+</rss>

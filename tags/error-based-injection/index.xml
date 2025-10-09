@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Error-Based Injection on r00tpunk</title>
+    <link>https://r00tpunk.github.io/tags/error-based-injection/</link>
+    <description>Recent content in Error-Based Injection on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 08 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://r00tpunk.github.io/tags/error-based-injection/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Injection Lab – Lesson 1 (Error-Based: String)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less1/</link>
+      <pubDate>Mon, 08 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less1/</guid>
+      <description>What is this Lesson About? This lab demonstrates a classic Error-Based SQL Injection vulnerability.&#xA;The application takes user input from the URL (id parameter) and uses it directly in a SQL query without proper validation or sanitization.&#xA;The purpose of this lesson is to understand how SQL errors can reveal valuable information and how attackers exploit them.&#xA;How to Identify if It Is Error-Based? When testing a parameter for SQL injection, attackers often add characters like:</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CTF on r00tpunk</title>
+    <link>https://r00tpunk.github.io/tags/ctf/</link>
+    <description>Recent content in CTF on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 24 Aug 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://r00tpunk.github.io/tags/ctf/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HTB Flag Command</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-flagcommand/</link>
+      <pubDate>Sun, 24 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-flagcommand/</guid>
+      <description>Challenge Overview The Flag Command challenge was a web-based puzzle where the goal was to uncover hidden commands and eventually extract the flag.&#xA;At first glance, it looked like a text-based adventure game running in the browser.&#xA;Step 1: The Initial Scene When we loaded the page, we were greeted with a creepy game-like screen:&#xA;It described an eerie forest with mysterious instructions and a prompt to begin.&#xA;Step 2: Inspecting the Responses Opening DevTools → Network/Response tab, we found JSON objects containing all possible commands.</description>
+    </item>
+    <item>
+      <title>HTB Spookifier</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-spookifier/</link>
+      <pubDate>Sat, 16 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-spookifier/</guid>
+      <description>HTB Challenge: Spookifier (Beginner Write-up) In this post, I’ll go over the HackTheBox challenge Spookifier.&#xA;It’s a web challenge, and I’ll explain step by step how I solved it as a first-year uni student.&#xA;Step 1: Explore the Web App After starting the challenge, I opened the website.&#xA;It’s called Spookifier and it asks you to enter your “Halloween name.”&#xA;When I typed my name, it showed the result in four different fonts.</description>
+    </item>
+    <item>
+      <title>HTB SpookyPass</title>
+      <link>https://r00tpunk.github.io/posts/ctf/htb-spookypass/</link>
+      <pubDate>Thu, 07 Aug 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/ctf/htb-spookypass/</guid>
+      <description>HTB Challenge: SpookyPass (Beginner Write-up) This is my write-up for the HackTheBox challenge SpookyPass.&#xA;It’s a reversing challenge, and since I’m still in my first year of university, I’ll keep it simple and explain step by step how I solved it.&#xA;Step 1: Download and Unzip the Files First, I downloaded the zip file from the challenge and unzipped it:&#xA;unzip SpookyPass.zip Inside, I found a folder called rev_spookypass.&#xA;I moved into the folder:</description>
+    </item>
+  </channel>
+</rss>
