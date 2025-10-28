@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Error-Based on r00tpunk</title>
+    <link>http://localhost:1313/tags/error-based/</link>
+    <description>Recent content in Error-Based on r00tpunk</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 04 Sep 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/error-based/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Error-Based SQL Injection</title>
+      <link>http://localhost:1313/posts/learning/errorbased/</link>
+      <pubDate>Thu, 04 Sep 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/posts/learning/errorbased/</guid>
+      <description>Error-Based SQL Injection (SQLi) Error-Based SQL Injection is a type of SQL injection where attackers exploit database errors to extract information from a web application. Unlike other SQL injection techniques, Error-Based SQLi relies on the database returning detailed error messages that reveal sensitive information such as table names, column names, or database structure.&#xA;Why Error-Based SQL Injection Happens Error-Based SQL Injection occurs when:&#xA;User inputs are directly included in SQL queries without proper validation or sanitization.</description>
+    </item>
+  </channel>
+</rss>
