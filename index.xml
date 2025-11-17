@@ -6,8 +6,15 @@
     <description>Recent content on r00tpunk</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 28 Oct 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Nov 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://r00tpunk.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SQL Injection Lab – Lesson 6 (Second Order Injections)</title>
+      <link>https://r00tpunk.github.io/posts/learning/less6/</link>
+      <pubDate>Mon, 17 Nov 2025 00:00:00 +0000</pubDate>
+      <guid>https://r00tpunk.github.io/posts/learning/less6/</guid>
+      <description>Second‑Order Injection Second ‑ Order SQL injection is similar to stored cross‑site scripting: the attacker injects malicious payload into the database, and the payload is later used in a different query on another page, causing the injection at a later time.&#xA;Lab Walkthrough Database before creating user.&#xA;User Registration &amp;amp; Login Flow Sign‑up: Enter a username and password (e.g., 1234 / p@ssw0rd) in my case I&amp;rsquo;m using r00tpunk as Username and blah as Password.</description>
+    </item>
     <item>
       <title>SQL Injection Lab – Lesson 5 (POST parameter injection -error based)</title>
       <link>https://r00tpunk.github.io/posts/learning/less5/</link>

@@ -2,28 +2,34 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://r00tpunk.github.io/tags/labs/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/posts/learning/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/posts/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/tags/second-order-injections/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/tags/sql-injection/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/posts/learning/less6/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/tags/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://r00tpunk.github.io/tags/web-security/</loc>
+    <lastmod>2025-11-17T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://r00tpunk.github.io/tags/double-query-injection/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://r00tpunk.github.io/tags/labs/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/posts/learning/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/posts/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/tags/sql-injection/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://r00tpunk.github.io/posts/learning/less5/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/tags/</loc>
-    <lastmod>2025-10-28T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://r00tpunk.github.io/tags/web-security/</loc>
     <lastmod>2025-10-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://r00tpunk.github.io/posts/learning/less4/</loc>
